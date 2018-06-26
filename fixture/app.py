@@ -1,10 +1,12 @@
 from selenium import webdriver
 from fixture.searchhelper import Searchhelper
+import os.path
 
 class Application:
     def __init__(self, browser, baseurl):
         if browser == 'chrome':
-            self.wd = webdriver.Chrome(executable_path=r'C:\Users\admin\AppData\Local\Google\Chrome\Application\chromedriver.exe')
+            address_driver = os.path.abspath(__file__)[:-14] + "chromedriver.exe"
+            self.wd = webdriver.Chrome(executable_path=address_driver)
         elif browser == 'firefox':
             self.wd = webdriver.Firefox(executable_path=r'C:\Users\admin\AppData\Local\Google\Chrome\Application\chromedriver.exe')
         else:

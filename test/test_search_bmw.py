@@ -10,3 +10,5 @@ def test_search_by_city(app, test_object):
     app.search.fill_in_city_and_press_search(region=test_object.region, city=test_object.city)
     app.search.configure_search(money='$', sort_param='Самые дорогие')
     assert test_object.city == app.search.get_location_from_first_item_ordinary_list()
+
+#py.test test\test_search_bmw.py
